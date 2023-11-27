@@ -1,0 +1,201 @@
+:root {
+    --color-primary: hsl(192, 20%, 50%);
+    --color-secondary: hsl(191, 21%, 36%);
+    --color--white: hsl(0, 0%, 100%);
+    --color--background: hsl(190.9, 57.9%, 96.3%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+/* CLASSES GERAIS*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    width: auto;
+    height: 40px;
+    padding: 8px 20px 0px 20px;
+    box-shadow: -8px 0px 19px -11px rgba(0, 0, 0, 0.57);
+}
+
+.mainBackground {
+    background-color: var(--color--background);
+}
+
+.label {
+    display: block;
+    text-align: center;
+}
+
+.input {
+    display: flex;
+    width: 250px;
+    margin: 0 auto 20px auto;
+    padding: 6px 3px;
+    font-size: medium;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.textarea {
+    margin: 0 8%;
+    resize: none;
+    border-radius: 7px;
+    border: none;
+}
+
+.button {
+    width: 200px;
+    margin: 10px 0 5px 75px;
+    padding: 4px 3px;
+    border: none;
+    border-radius: 10px;
+    color: var(--color-primary);
+    font-family: 'Lato', sans-serif;
+    font-size: larger;
+}
+
+.button:hover {
+    background-color: var(--color-secondary);
+    color: var(--color--white);
+}
+
+.mobile_button {
+    display: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-image: url('../CSS/Icons/icons8-menu-50.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-color: var(--color-primary);
+    border: none;
+}
+
+.mobile_button:hover {
+    background-color: var(--color-secondary);
+}
+
+.content {
+    display: block;
+    width: 350px;
+    height: auto;
+    margin: 20px auto auto auto;
+    padding: 5px;
+    color: var(--color--white);
+    background-color: var(--color-primary);
+    box-shadow: -8px 0px 19px -11px rgba(0, 0, 0, 0.57);
+    border-radius: 10px;
+}
+
+.content h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+}
+
+#content_boas_vindas {
+    margin-top: 150px;
+    text-align: center;
+    padding: 30px;
+}
+
+#content_listar {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 120px;
+    color: var(--color--white);
+    background-color: var(--color-primary);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    box-shadow: -8px 0px 19px -11px rgba(0, 0, 0, 0.57);
+}
+
+.logo:hover {
+    color: var(--color-primary);
+    background-color: var(--color--white);
+    box-shadow: -8px 0px 19px -11px rgba(0, 0, 0, 0.96);
+}
+
+#logo_boas_vindas {
+    width: 180px;
+    color: var(--color--white);
+    background-color: var(--color-primary);
+    text-align: center;
+    font-size: larger;
+    margin: 2px auto auto auto;
+    border-radius: 20px;
+    box-shadow: -8px 0px 19px -11px rgba(0, 0, 0, 0.57);
+}
+
+.menu {
+    color: var(--color--white);
+    background-color: var(--color-primary);
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: -8px 0px 19px -11px rgba(0, 0, 0, 0.57);
+}
+
+.mobile_menu {
+    display: none;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-color: var(--color-primary);
+    margin: auto auto auto 36%;
+    padding: 14px 0px 15px 20px;
+    font-size: x-large;
+    border-radius: 9px 0px 0 9px;
+    z-index: 1;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.link {
+    color: var(--color--white);
+    text-decoration: none;
+    margin: 0 5px 0 5px;
+    font-weight: 600;
+}
+
+.link:hover {
+    color: var(--color-secondary);
+}
+
+/* CLASSES UTEIS*/
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+@media screen and (max-width:700px) {
+    .menu {
+        display: none;
+    }
+
+    .mobile_button {
+        display: block;
+    }
+}

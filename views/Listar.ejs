@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>EmpowerRH(Prototipo)</title>
+</head>
+
+<body class="mainBackground">
+    <header class="header">
+        <div class="logo">
+            <h3><a class="logo" href="/">EmpowerRH</a></h3>
+        </div>
+        <div class="menu">
+            <a class="link" href="Cadastrar">Cadastrar</a>
+            <a class="link" href="Pesquisar">Pesquisar </a>
+            <a class="link" href="Listar">Listar </a>
+            <a class="link" href="Ferias">Solicitar Ferias</a>
+        </div>
+
+        <button class="mobile_button" onclick="menu()"></button>
+    </header>
+
+    <div class="mobile_menu">
+        <a class="link" href="Cadastrar">Cadastrar</a>
+        <a class="link" href="Pesquisar">Pesquisar </a>
+        <a class="link" href="#">Listar </a>
+        <a class="link" href="Ferias">Solicitar Ferias</a>
+    </div>
+
+    <form action="/listar" method="post">
+        <div class="content">
+            <h2>Listar Colaboradores</h2>
+
+            <label class="label">Departamento</label>
+            <select name="departamento" id="departamento" class="input">
+                <option value="Administrativo">Administrativo</option>
+                <option value="RH">RH</option>
+            </select>
+
+            <button class="button" type="submit">Pesquisar</button>
+
+            <% if (typeof message !=='undefined' ) { %>
+                <h4>
+                    <%= message %>
+                </h4>
+                <% } %>
+        </div>
+    </form>
+
+    <% if ( result !=='null' ) { %>
+        <div id="content_listar">
+            <% for( let i=0; i < listar.length; i++ ) { %>
+                <div class="content">
+                    <h3> Nome: <%= listar [i].nome %>
+                    </h3>
+
+                    <h3> CPF: <%= listar [i].cpf %>
+                    </h3>
+
+                    <h3> Cargo: <%= listar [i].cargo %>
+                    </h3>
+
+                    <h3>Departamento: <%= listar [i].departamento %>
+                    </h3>
+
+                    <div style="display: flex; margin: 0 0 0 -20%;">
+                        <button class="button">
+                            <a class="link" style="color: var(--color-primary);"
+                                href="/editar?id=<%= listar [i].id %>">Editar</a>
+                        </button>
+
+                        <button class="button" onclick="showModal()">
+                            Remover
+                        </button>
+
+                    </div>
+
+                    <div class="hide" id="modal_remover">
+                        <h4>Deseja remover este colaborador?</h4>
+
+                        <button class="button">
+                            <a class="link" style="color: var(--color-primary);" href="/remover?id=<%= listar [i].id %>"
+                                onclick="closeModal()">Sim</a>
+                        </button>
+
+                        <button class="button">
+                            <a onclick="closeModal()">Não</a>
+                        </button>
+                    </div>
+                </div>
+
+                <% } %>
+        </div>
+        <% } %>
+</body>
+
+<script>
+    var modal_remover = document.getElementById('modal_remover')
+
+    function menu() {
+        var mobile_button = document.querySelector('.mobile_button')
+        var mobile_menu = document.querySelector('.mobile_menu')
+
+        if (mobile_menu.style.display === 'flex') {
+            mobile_menu.style.display = 'none'
+        } else {
+            mobile_menu.style.display = 'flex'
+        }
+
+    }
+
+    function showModal() {
+        modal_remover.classList.remove('hide')
+        modal_remover.classList.add('show')
+    }
+
+    function closeModal() {
+        modal_remover.classList.add('hide')
+        modal_remover.classList.remove('show')
+    }
+
+
+</script>
+
+</html>

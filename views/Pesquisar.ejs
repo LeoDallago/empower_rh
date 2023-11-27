@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>EmpowerRH(Prototipo)</title>
+</head>
+
+<body class="mainBackground">
+    <header class="header">
+        <div class="logo">
+            <h3><a class="logo" href="/">EmpowerRH</a></h3>
+        </div>
+        <div class="menu">
+            <a class="link" href="Cadastrar">Cadastrar</a>
+            <a class="link" href="Pesquisar">Pesquisar </a>
+            <a class="link" href="Listar">Listar </a>
+            <a class="link" href="Ferias">Solicitar Ferias</a>
+        </div>
+
+        <button class="mobile_button" onclick="menu()"></button>
+    </header>
+
+    <div class="mobile_menu">
+        <a class="link" href="Cadastrar">Cadastrar</a>
+        <a class="link" href="#">Pesquisar </a>
+        <a class="link" href="Listar">Listar </a>
+        <a class="link" href="Ferias">Solicitar Ferias</a>
+    </div>
+
+    <form action="/pesquisar" method="post">
+        <div class="content">
+
+            <h2>Pesquisar Colaborador</h2>
+
+            <label for="" class="label">Nome:</label>
+            <input type="text" id="nome_pesquisa" class="input" name="nome">
+
+            <label for="" class="label">Cargo:</label>
+            <input type="text" id="cargo_pesquisa" class="input" name="cargo">
+
+            <label for="" class="label">Departamento:</label>
+            <select name="departamento" id="departamento" class="input">
+                <option value="Administrativo">Administrativo</option>
+                <option value="RH">RH</option>
+            </select>
+
+            <button id="botao_pesquisa" class="button" type="submit">Pesquisar</button>
+
+            <% if (typeof message !=='undefined' ) { %>
+                <h4>
+                    <%= message %>
+                </h4>
+                <% } %>
+        </div>
+    </form>
+
+</body>
+<script>
+
+    function menu() {
+        var mobile_button = document.querySelector('.mobile_button')
+        var mobile_menu = document.querySelector('.mobile_menu')
+
+        if (mobile_menu.style.display === 'flex') {
+            mobile_menu.style.display = 'none'
+        } else {
+            mobile_menu.style.display = 'flex'
+        }
+
+    }
+</script>
+
+</html>

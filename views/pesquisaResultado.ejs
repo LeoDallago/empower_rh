@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>EmpowerRH(Prototipo)</title>
+</head>
+
+<body class="mainBackground">
+    <header class="header">
+        <div class="logo">
+            <h3><a class="logo" href="/">EmpowerRH</a></h3>
+        </div>
+        <div class="menu">
+            <a class="link" href="#">Cadastrar</a>
+            <a class="link" href="Pesquisar">Pesquisar </a>
+            <a class="link" href="Listar">Listar </a>
+            <a class="link" href="Ferias">Solicitar Ferias</a>
+        </div>
+
+        <button class="mobile_button" onclick="menu()"></button>
+    </header>
+
+    <div class="mobile_menu">
+        <a class="link" href="Cadastrar">Cadastrar</a>
+        <a class="link" href="Pesquisar">Pesquisar </a>
+        <a class="link" href="Listar">Listar </a>
+        <a class="link" href="Ferias">Solicitar Ferias</a>
+    </div>
+
+
+    <div class="content">
+
+        <h2> Nome: <%= pesquisa.nome %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> CPF: <%= pesquisa.cpf %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> Nascimento: <%= pesquisa.nascimento %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> Sexo: <%= pesquisa.sexo %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px; margin-top: 8px;">
+
+        <h2> Telefone: <%= pesquisa.telefone %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> Estado civil: <%= pesquisa.estado_civil %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> Cargo: <%= pesquisa.cargo %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> Departamento: <%= pesquisa.departamento %>
+        </h2>
+        <hr style="color:var(--color-primary); margin-top: 8px;">
+
+        <h2> Situação: <%= pesquisa.situacao %>
+        </h2>
+
+        <button class="button">
+            <a class="link" style="color: var(--color-primary);" href="/editar?id=<%= pesquisa.id %>">Editar</a>
+        </button>
+    </div>
+
+</body>
+
+<script>
+
+    function menu() {
+        var mobile_button = document.querySelector('.mobile_button')
+        var mobile_menu = document.querySelector('.mobile_menu')
+
+        if (mobile_menu.style.display === 'flex') {
+            mobile_menu.style.display = 'none'
+        } else {
+            mobile_menu.style.display = 'flex'
+        }
+
+    }
+</script>
+
+</html>

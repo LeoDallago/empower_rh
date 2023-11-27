@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>EmpowerRH(Prototipo)</title>
+</head>
+
+<body class="mainBackground">
+    <header class="header">
+        <div class="logo">
+            <h3><a class="logo" href="/">EmpowerRH</a></h3>
+        </div>
+        <div class="menu">
+            <a class="link" href="#">Cadastrar</a>
+            <a class="link" href="Pesquisar">Pesquisar </a>
+            <a class="link" href="Listar">Listar </a>
+            <a class="link" href="Ferias">Solicitar Ferias</a>
+        </div>
+
+        <button class="mobile_button" onclick="menu()"></button>
+    </header>
+
+    <div class="mobile_menu">
+        <a class="link" href="Cadastrar">Cadastrar</a>
+        <a class="link" href="Pesquisar">Pesquisar </a>
+        <a class="link" href="Listar">Listar </a>
+        <a class="link" href="Ferias">Solicitar Ferias</a>
+    </div>
+
+    <div class="content">
+        <form action="/infoEditar" method="POST">
+            <br>
+            <h3>Editar Colaborador</h3>
+            <br>
+            <input name="id" value=<%=editar.id %> class='hide'>
+
+            <label for="" class="label">Nome</label>
+            <input class="input" type="text" name="nome" value=<%=editar.nome %>>
+
+            <label for="" class="label">CPF</label>
+            <input class="input" type="text" name="cpf" value=<%=editar.cpf %>>
+
+            <label for="" class="label">Data de nascimento</label>
+            <input class="input" type="date" name="nascimento" value=<%=editar.nascimento %>>
+
+            <label for="" class="label">Sexo</label>
+            <select name="sexo" id="sexo" class="input">
+                <option value=<%=editar.sexo %> selected><%= editar.sexo %>
+                </option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outro">Outro</option>
+            </select>
+
+            <label for="" class="label">Telefone</label>
+            <input class="input" type="text" name="telefone" value=<%=editar.telefone %> >
+
+            <label for="" class="label">Estado civil</label>
+            <select name="estado_civil" id="estado_civil" class="input">
+                <option value=<%=editar.estado_civil %> selected><%= editar.estado_civil %> (Atual)</option>
+                <option value="Solteiro">Solteiro</option>
+                <option value="Casado">Casado</option>
+                <option value="Viuvo">Viuvo</option>
+                <option value="Divorciado">Divorciado</option>
+            </select>
+
+            <label for="" class="label">Cargo</label>
+            <input class="input" type="text" name="cargo" value=<%=editar.cargo %>>
+
+            <label for="" class="label">Departamento</label>
+            <select name="departamento" id="departamento" class="input">
+                <option value=<%=editar.departamento %> selected><%= editar.departamento %> (Atual)</option>
+                <option value="Administrativo">Administrativo</option>
+                <option value="RH">RH</option>
+            </select>
+
+            <button type="submit" class="button">Editar</button>
+        </form>
+    </div>
+</body>
+
+<script>
+
+    function menu() {
+        var mobile_button = document.querySelector('.mobile_button')
+        var mobile_menu = document.querySelector('.mobile_menu')
+
+        if (mobile_menu.style.display === 'flex') {
+            mobile_menu.style.display = 'none'
+        } else {
+            mobile_menu.style.display = 'flex'
+        }
+
+    }
+</script>
+
+</html>
